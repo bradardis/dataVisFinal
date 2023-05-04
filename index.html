@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <script>  
+        function favTutorial() {  
+        var mylist = document.getElementById("myList");  
+        document.getElementById("awayTeam").value = mylist.options[mylist.selectedIndex].text;  
+        } 
+        function favTutorial2() {  
+        var mylist = document.getElementById("myList2");  
+        document.getElementById("homeTeam").value = mylist.options[mylist.selectedIndex].text;  
+        }   
+        </script> 
+        <style>
+            *{
+        scroll-behavior: smooth;
+            }
+        </style> 
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="color: var(--bs-indigo);background: rgb(191,121,39);">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>BucketBot</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><svg></svg><span>Probability Evaluator</span></a> <a class="nav-link active"  href="#section-foobar"><svg></svg><span>Betting Model</span></a><a class="nav-link active"  href="#section-foo"><svg></svg><span>What are others betting?</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Best Bets</h3>
+                    </div>
+                    <div class="row" style="margin: -3px;">
+                        <div class="col" style="height: 156.797px;">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-xxl-3 me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1" style="margin-right: -47px;"><span>Select Away team</span></div>
+                                            <select id = "myList" onchange = "favTutorial()" >  
+                                                <option> Wizards </option>  
+                                                <option> Nets </option>  
+                                                <option> Lakers </option>  
+                                                <option> Pelicans </option>
+                                                <option> Suns </option>  
+                                                <option> Pistons </option>  
+                                                <option> Clippers </option>  
+                                                <option> Knicks </option>  
+                                                <option> Tblazers</option>  
+                                                <option> Bulls </option>  
+                                                <option> Heat </option>  
+                                                <option> Bucks </option>  
+                                                <option> Rockets </option>  
+                                                <option> Thunder </option>  
+                                                <option> Mavs </option>  
+                                                <option> Warriors </option>  
+                                                <option> Hawks </option>  
+                                                <option> Nuggets </option>  
+                                                <option> Twolves </option>  
+                                                <option> Kings </option>  
+                                                <option> Spurs </option>  
+                                                <option> Magic </option>  
+                                                <option> Jazz </option>  
+                                                <option> Hornets </option>  
+                                                <option> Celtics </option>  
+                                                <option> Cavs </option>  
+                                                <option> 76ers</option>  
+                                                <option> Pacers </option>
+                                                <option> Raptors </option>
+                                                <option> Grizzlies </option>        
+                                                </select>  
+                                        </div>
+                                        <div class="col"><input type = "text" id = "awayTeam" size = "20" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-xxl-3 me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1" style="margin-right: -47px;"><span>Select Home team</span></div>
+                                            <select id = "myList2" onchange = "favTutorial2()" >  
+                                                <option> Wizards </option>  
+                                                <option> Nets </option>  
+                                                <option> Lakers </option>  
+                                                <option> Pelicans </option>
+                                                <option> Suns </option>  
+                                                <option> Pistons </option>  
+                                                <option> Clippers </option>  
+                                                <option> Knicks </option>  
+                                                <option> Tblazers</option>  
+                                                <option> Bulls </option>  
+                                                <option> Heat </option>  
+                                                <option> Bucks </option>  
+                                                <option> Rockets </option>  
+                                                <option> Thunder </option>  
+                                                <option> Mavs </option>  
+                                                <option> Warriors </option>  
+                                                <option> Hawks </option>  
+                                                <option> Nuggets </option>  
+                                                <option> Twolves </option>  
+                                                <option> Kings </option>  
+                                                <option> Spurs </option>  
+                                                <option> Magic </option>  
+                                                <option> Jazz </option>  
+                                                <option> Hornets </option>  
+                                                <option> Celtics </option>  
+                                                <option> Cavs </option>  
+                                                <option> 76ers</option>  
+                                                <option> Pacers </option>
+                                                <option> Raptors </option>
+                                                <option> Grizzlies </option>   
+                                                </select> 
+                                        </div>
+                                        <div class="col"><input type = "text" id = "homeTeam" size = "20" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="card shadow mb-4">
+                        <div style="margin-bottom: 20px; margin-top: 20px; margin-left: auto; margin-right: auto;"><label>Line:</label><input type = "text" id = "line" size = "20" style="margin-left:10px" /></div><button class="btn btn-primary" type="button"  onclick="render();"  style="width: 225px;text-align: center;">Calculate</button>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8 col-xxl-12">
+                            
+                                <div></div>
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Away Team Total Score</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="display:flex">
+                                    <div>
+                                    <svg id="HomeTotalScore" width = "800" height = "1000" style="margin-right:50px;"></svg>
+                                </div>
+                                    <div style="float:right;"><p style="margin-top:200px; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph displays historical results of total points scored in games played by the selected away team. Keep in mind that the red line is not 
+                                    based on historical line data but the user input line representing the current O/U line. It is important to keep in mind that historical results are not indicitive of future performance.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                       
+
+                        
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-7 col-xl-8 col-xxl-12">
+                            
+                        <div></div>
+                        <div class="card shadow mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="text-primary fw-bold m-0">Away Team DL Projections</h6>
+                            <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                    <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="display:flex">
+                            <div>
+                            <svg id="HomeProj" width = "800" height = "1000" style="margin-right:50px;"></svg>
+                        </div>
+                            <div style="float:right;"><p style="margin-top:200px; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph is displaying the projections for O/U given from the deep learning model. It is important to note that these projections are based off many factors so projections can vary greatly depending on opposition. The important thing to note is how does projection correlate to actual score when home or away. </p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-lg-7 col-xl-8 col-xxl-12">
+                    
+                <div class="card shadow mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="text-primary fw-bold m-0">Home Team Total Score</h6>
+                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="display:flex">
+                    <div>
+                    <svg id="awayProj" width = "800" height = "1000" style="margin-right:50px;"></svg>
+                </div>
+                <div style="float:right;"><p style="margin-top:200px; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph displays historical results of total points scored in games played by the selected home team. Keep in mind that the red line is not 
+                    based on historical line data but the user input line representing the current O/U line. It is important to keep in mind that historical results are not indicitive of future performance.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="row">
+            <div class="col-lg-7 col-xl-8 col-xxl-12">
+                    
+                <div></div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="text-primary fw-bold m-0">Home Team DL Projections</h6>
+                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="display:flex">
+                    <div>
+                    <svg id="awayTotalScore" width = "800" height = "1000" style="margin-right:50px;"></svg>
+                </div>
+                <div style="float:right;"><p style="margin-top:200px; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This graph is displaying the projections for O/U given from the deep learning model. It is important to note that these projections are based off many factors so projections can vary greatly depending on opposition. The important thing to note is how does projection correlate to actual score when home or away. </p></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="section-foobar">
+        <div class="card shadow mb-4">
+            <div class="row">
+                <div class="col-lg-7 col-xl-8 col-xxl-12">
+                        
+                    <div></div>
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Betting Model</h6>
+                        <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                            <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="display:flex">
+                        <img src = "thisGraph.png"> </img>
+                        <div style="float:right;"><p style="margin-top:200px; font-size: large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sportsbooks usually have odds of -110 American or 1.91 Decimal on the over and under picks for NBA games. These odds give sportsbooks a house edge of 4.55% with an implied win probability of 52.38%. In other words, for every $100 that the average person spends on either the over or under line, the sportsbook expects to make $4.55 from the bet.
+    
+                            However, the person would break even if they are able to correctly pick at least 52.38% of their over/under lines in the long term assuming that they are betting the same amount of money every pick. By extension, they are profitable in the long run if they are able to correctly pick OU lines with an accuracy above 52.38%. Thus, the basis of every successful NBA Totals model is being able to correctly pick lines at >= 52.38% accuracy.</div>
+                        </p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+            <div id="section-foo">
+
+            </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position:absolute; top:6000px; left:250px;  height: 4500px; width:20vw;">
+                <a  class="twitter-timeline" href="https://twitter.com/DimersCom?ref_src=twsrc%5Etfw">Tweets by DimersCom</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div style="position:absolute; top:6000px; left:850px; height: 4500px; width:20vw;">
+                <a class="twitter-timeline" href="https://twitter.com/MikeLundinBET?ref_src=twsrc%5Etfw">Tweets by MikeLundinBET</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div style="position:absolute; top:6000px; left:1450px; height: 4500px; width:20vw;">
+                <a  class="twitter-timeline" href="https://twitter.com/MattFargoCapper?ref_src=twsrc%5Etfw">Tweets by MattFargoCapper</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div> 
+
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script>
+        function render() { 
+    //iife - this wraps the code in a function so it isn't accidentally exposed 
+    //to other javascript in other files. It is not required.
+    
+
+    $("#HomeTotalScore").empty();
+    $("#HomeProj").empty();
+    $("#awayTotalScore").empty();
+    $("#awayProj").empty();
+
+
+        var lineVal = $("#line").val();
+        var lineVal2 = 300-lineVal;
+        var lineVal3 = lineVal2*3;
+
+        var mylist = document.getElementById("myList");  
+        var awayTeam = mylist.options[mylist.selectedIndex].text; 
+
+        var mylist2 = document.getElementById("myList2");  
+        var homeTeam = mylist2.options[mylist.selectedIndex].text; 
+
+        var width=800, height=600
+    
+        //read in our csv file 
+        d3.csv("games.csv").then((data) => {
+        
+          const svg = d3
+          .select("#HomeTotalScore")
+          .append("g")
+          .attr("transform", "translate(40,40)");
+
+        console.log(data)
+            
+          //filter out items without proce data
+          data1 = data.filter((d) => {
+              return d.Away == awayTeam;
+          })
+
+          data2 = data1.filter((d) => {
+            return d.Actual_Score != "";
+        })
+
+
+
+
+         var parseTime = d3.timeParse("%m-%d-%Y");
+
+          function sortByIDAscending(a, b) {
+            return a.ID - b.ID;
+          } 
+        
+          data2 = data2.sort(sortByIDAscending);
+          console.log(data2)
+
+          const timeScale = d3
+          .scaleTime()
+        //   .scaleTime()
+        .domain(
+        //earliest date, latest date
+        d3.extent(data2, (d) => {
+          //console.log(parseTime(d.date));
+          return parseTime(d.Dates);
+        }) //[date1, date2]
+      )
+          .range([0, width]);
+          console.log(timeScale)
+          const yScale = d3
+          .scaleLinear()
+          .domain([100, 300])
+          .range([height, 0]);
+
+          const lineGenerator = d3
+          .line()
+          .x(function (d, i) {
+            return timeScale(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(function (d) {
+            return yScale(+d.Actual_Score); //use our y scale on the y value from data
+          });
+
+          //formula to place line: value/100*60  
+
+          // create Red Line function
+          var overunder = d3.line()
+          .x(function (d, i) {
+            return timeScale(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(lineVal3)
+    
+        // //line generator will create SVG vectors based on data
+          const line = lineGenerator(data2);
+
+          const redline = overunder(data2);
+    
+        // Create a path element and set its d attribute
+          svg
+          .append("path")
+          .attr("d", line) //data items
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+          // Add the x Axis
+          svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(timeScale));
+          // Add the y Axis
+          svg.append("g")
+          .call(d3.axisLeft(yScale));
+
+          // Create Red Line
+          svg
+          .append("path")
+          .attr("d", redline)
+          .attr("stroke", "red")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+
+          const svg2 = d3
+          .select("#HomeProj")
+          .append("g")
+          .attr("transform", "translate(40,40)");
+
+          //filter out items without proce data
+          data4 = data.filter((d) => {
+              return d.Away == awayTeam;
+          })
+
+          data4 = data4.filter((d) => {
+            return d.Actual_Score != "";
+        })
+
+
+
+
+         var parseTime = d3.timeParse("%m-%d-%Y");
+
+          function sortByIDAscending(a, b) {
+            return a.ID - b.ID;
+          } 
+        
+          data4 = data4.sort(sortByIDAscending);
+          console.log(data)
+
+          const timeScale2 = d3
+          .scaleTime()
+        //   .scaleTime()
+        .domain(
+        //earliest date, latest date
+        d3.extent(data4, (d) => {
+          //console.log(parseTime(d.date));
+          return parseTime(d.Dates);
+        }) //[date1, date2]
+      )
+          .range([0, width]);
+          console.log(timeScale2)
+          const yScale2 = d3
+          .scaleLinear()
+          .domain([100, 300])
+          .range([height, 0]);
+
+          const lineGenerator2 = d3
+          .line()
+          .x(function (d, i) {
+            return timeScale2(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(function (d) {
+            return yScale2(+d.Projection); //use our y scale on the y value from data
+          });
+
+          //formula to place line: value/100*60  
+
+          // create Red Line function
+          var overunder = d3.line()
+          .x(function (d, i) {
+            return timeScale2(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(lineVal3)
+    
+        // //line generator will create SVG vectors based on data
+          const line2 = lineGenerator2(data4);
+
+          const redline2 = overunder(data4);
+    
+        // Create a path element and set its d attribute
+          svg2
+          .append("path")
+          .attr("d", line2) //data items
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+          // Add the x Axis
+          svg2.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(timeScale2));
+          // Add the y Axis
+          svg2.append("g")
+          .call(d3.axisLeft(yScale2));
+
+          // Create Red Line
+          svg2
+          .append("path")
+          .attr("d", redline2)
+          .attr("stroke", "red")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+          const svg3 = d3
+          .select("#awayProj")
+          .append("g")
+          .attr("transform", "translate(40,40)");
+
+          //filter out items without proce data
+          data5 = data.filter((d) => {
+              return (d.Home).trim() == homeTeam;
+          })
+
+          data5 = data5.filter((d) => {
+            return d.Actual_Score != "";
+        })
+
+
+
+
+         var parseTime = d3.timeParse("%m-%d-%Y");
+
+          function sortByIDAscending(a, b) {
+            return a.ID - b.ID;
+          } 
+        
+          data5 = data5.sort(sortByIDAscending);
+          console.log(data)
+
+          const timeScale3 = d3
+          .scaleTime()
+        //   .scaleTime()
+        .domain(
+        //earliest date, latest date
+        d3.extent(data5, (d) => {
+          //console.log(parseTime(d.date));
+          return parseTime(d.Dates);
+        }) //[date1, date2]
+      )
+          .range([0, width]);
+          console.log(timeScale2)
+          const yScale3 = d3
+          .scaleLinear()
+          .domain([100, 300])
+          .range([height, 0]);
+
+          const lineGenerator3 = d3
+          .line()
+          .x(function (d, i) {
+            return timeScale3(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(function (d) {
+            return yScale3(+d.Projection); //use our y scale on the y value from data
+          });
+
+          //formula to place line: value/100*60  
+
+          // create Red Line function
+          var overunder = d3.line()
+          .x(function (d, i) {
+            return timeScale3(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(lineVal3)
+    
+        // //line generator will create SVG vectors based on data
+          const line3 = lineGenerator3(data5);
+
+          const redline3 = overunder(data5);
+    
+        // Create a path element and set its d attribute
+          svg3
+          .append("path")
+          .attr("d", line3) //data items
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+          // Add the x Axis
+          svg3.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(timeScale3));
+          // Add the y Axis
+          svg3.append("g")
+          .call(d3.axisLeft(yScale3));
+
+          // Create Red Line
+          svg3
+          .append("path")
+          .attr("d", redline3)
+          .attr("stroke", "red")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+
+          const svg4 = d3
+          .select("#awayTotalScore")
+          .append("g")
+          .attr("transform", "translate(40,40)");
+
+          //filter out items without proce data
+          data = data.filter((d) => {
+              return d.Home == homeTeam;
+          })
+
+          data = data.filter((d) => {
+            return d.Actual_Score != "";
+        })
+
+
+
+
+         var parseTime = d3.timeParse("%m-%d-%Y");
+
+          function sortByIDAscending(a, b) {
+            return a.ID - b.ID;
+          } 
+        
+          data = data.sort(sortByIDAscending);
+          console.log(data)
+
+          const timeScale4 = d3
+          .scaleTime()
+        //   .scaleTime()
+        .domain(
+        //earliest date, latest date
+        d3.extent(data, (d) => {
+          //console.log(parseTime(d.date));
+          return parseTime(d.Dates);
+        }) //[date1, date2]
+      )
+          .range([0, width]);
+          console.log(timeScale2)
+          const yScale4 = d3
+          .scaleLinear()
+          .domain([100, 300])
+          .range([height, 0]);
+
+          const lineGenerator4 = d3
+          .line()
+          .x(function (d, i) {
+            return timeScale4(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(function (d) {
+            return yScale4(+d.Actual_Score); //use our y scale on the y value from data
+          });
+
+          //formula to place line: value/100*60  
+
+          // create Red Line function
+          var overunder = d3.line()
+          .x(function (d, i) {
+            return timeScale4(parseTime(d.Dates)); //use our x scale on the index
+          })
+          .y(lineVal3)
+    
+        // //line generator will create SVG vectors based on data
+          const line4 = lineGenerator4(data);
+
+          const redline4 = overunder(data);
+    
+        // Create a path element and set its d attribute
+          svg4
+          .append("path")
+          .attr("d", line4) //data items
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+          // Add the x Axis
+          svg4.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(timeScale4));
+          // Add the y Axis
+          svg4.append("g")
+          .call(d3.axisLeft(yScale4));
+
+          // Create Red Line
+          svg4
+          .append("path")
+          .attr("d", redline4)
+          .attr("stroke", "red")
+          .attr("stroke-width", "3px")
+          .attr("fill", "white");
+
+        });
+    
+    }
+    </script>
+</body>
+
+</html>
